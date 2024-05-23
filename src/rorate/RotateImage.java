@@ -14,7 +14,10 @@ public class RotateImage {
         int rowCount = matrix.length;
         int colCount = matrix[0].length;
 
-        for (int i = 0; i < rowCount; i++) {
+        System.out.println("Original ");
+        printMatrix(matrix);
+
+        for (int i = 0; i < rowCount - 1; i++) {
             for (int j = i + 1; j < colCount; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
@@ -25,16 +28,14 @@ public class RotateImage {
         System.out.println("After Transpose ");
         printMatrix(matrix);
 
-        System.out.println();
-
-        for (int i = 0; i < matrix.length; i++) {
-            swap(matrix[i]);
+        for (int[] arr : matrix) {
+            reverse(arr);
         }
         System.out.println("After Reverse ");
         printMatrix(matrix);
     }
 
-    public static void swap(int[] matrix) {
+    public static void reverse(int[] matrix) {
 
         int i = 0;
         int j = matrix.length - 1;
@@ -59,6 +60,7 @@ public class RotateImage {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
 
