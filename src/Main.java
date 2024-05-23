@@ -28,23 +28,24 @@ class B extends A {
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Thread: " + Thread.currentThread().getName());
-        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("Thread: " + Thread.currentThread().getName());
-            return "From future thread";
-        }).thenApply(s -> "Test: " + s).thenApply(s -> "sfdfgd");
+
+        String a = "abcd";
+        modify(a);
+        System.out.println(a);
 
 
-        try {
-            System.out.println(future.get());
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error: " + e);
-        }
+//        List<String> list = new ArrayList<>();
+//        list.add("ab");
+//        modify(list);
+//        System.out.println(""+list);
+    }
+
+    private static void modify(List<String> list) {
+        list.add("cd");
+    }
+
+    private static void modify(String a) {
+        a="10";
     }
 
 }
