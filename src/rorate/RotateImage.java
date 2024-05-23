@@ -17,7 +17,7 @@ public class RotateImage {
         System.out.println("Original ");
         printMatrix(matrix);
 
-        for (int i = 0; i < rowCount - 1; i++) {
+        for (int i = 0; i < rowCount; i++) {
             for (int j = i + 1; j < colCount; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
